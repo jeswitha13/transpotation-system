@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - College Transportation Management System</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <!-- Left Side: Branding, Perks, Artwork -->
+    <div class="auth-side-brand">
+      <div class="brand-pattern"></div>
+      <div class="brand-glow"></div>
+
+      <div class="brand-logo-area">
+        <a href="/" style="display: flex; align-items: center; gap: 0.75rem; color: #ffffff;">
+          <div class="logo-badge" style="background: var(--primary);">🚌</div>
+          <span>College Transportation</span>
+        </a>
+      </div>
+
+      <div class="brand-content">
+        <h1 class="brand-hero-title">
+          Smart Mobility for <br>
+          <span>Modern Campus.</span>
+        </h1>
+        <p class="brand-hero-desc">
+          Sign in to access your customized portal. Real-time telemetry for drivers, digital pass issuance for students, and complete fleet control for administrators.
+        </p>
+
+        <ul class="brand-perks">
+          <li class="brand-perk-item">
+            <span class="perk-check">✓</span>
+            <span>Real-time GPS bus tracking &amp; stop notifications</span>
+          </li>
+          <li class="brand-perk-item">
+            <span class="perk-check">✓</span>
+            <span>Instant Digital Bus Pass with QR verification</span>
+          </li>
+          <li class="brand-perk-item">
+            <span class="perk-check">✓</span>
+            <span>Unified transportation fee payment &amp; receipting</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="brand-footer-note">
+        &copy; 2026 College Transportation Logistics Desk • Powered by Smart Fleet OS
+      </div>
+    </div>
+
+    <!-- Right Side: Login Form Card -->
+    <div class="auth-side-form">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h2 class="auth-title">Welcome Back</h2>
+          <p class="auth-subtitle">Select your role and sign in to your transportation portal</p>
+        </div>
+
+        <!-- Role Selector Tabs -->
+        <div class="role-tabs">
+          <div class="role-tab active" data-role="admin">Admin</div>
+          <div class="role-tab" data-role="student">Student</div>
+          <div class="role-tab" data-role="driver">Driver</div>
+        </div>
+
+        <!-- Quick Demo Credentials Box -->
+        <div class="demo-accounts-box">
+          <div class="demo-title">⚡ Quick 1-Click Demo Login</div>
+          <div class="demo-pills">
+            <button type="button" class="demo-pill" onclick="fillDemoCredentials('admin')">Admin Demo</button>
+            <button type="button" class="demo-pill" onclick="fillDemoCredentials('student')">Student Demo</button>
+            <button type="button" class="demo-pill" onclick="fillDemoCredentials('driver')">Driver Demo</button>
+          </div>
+        </div>
+
+        <form id="loginForm">
+          <input type="hidden" id="selectedRole" value="admin" />
+
+          <div class="form-group">
+            <label class="form-label" for="loginIdentifier">Email Address, Username or Roll No</label>
+            <div class="input-with-icon">
+              <span class="input-icon">👤</span>
+              <input type="text" class="form-control" id="loginIdentifier" placeholder="e.g. admin@college.edu or 23CS1048" required value="admin@college.edu" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem;">
+              <label class="form-label" for="loginPassword" style="margin-bottom: 0;">Password</label>
+              <a href="#" onclick="alert('Demo Mode: Default password for all seed accounts is password123'); return false;" style="font-size: 0.8rem;">Forgot Password?</a>
+            </div>
+            <div class="input-with-icon password-field-wrapper">
+              <span class="input-icon">🔒</span>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required value="password123" />
+              <button type="button" class="password-toggle-btn" data-target="loginPassword" aria-label="Toggle password visibility">👁️</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1.5rem;">
+            Login to Portal →
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 1.75rem; font-size: 0.9rem; color: var(--text-secondary);">
+          Are you a new student commuter? <br>
+          <a href="/register.html" style="font-weight: 700; color: var(--primary);">Register for Transportation Here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

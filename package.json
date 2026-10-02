@@ -1,0 +1,29 @@
+{
+  "name": "college-transportation-management-system",
+  "version": "1.0.0",
+  "description": "Smart, Modern & Reliable College Transportation Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "stop": "powershell -Command \"$c = Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue; if ($c) { Stop-Process -Id $c.OwningProcess -Force; Write-Host 'Freed port 3000 successfully.' } else { Write-Host 'Port 3000 is already free.' }\""
+  },
+  "keywords": [
+    "college",
+    "bus",
+    "transportation",
+    "management",
+    "tracking"
+  ],
+  "author": "Smart Bus Management Team",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
+    "express": "^4.22.3",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.4"
+  }
+}

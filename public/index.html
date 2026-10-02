@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart & Reliable College Transportation Management System</title>
+  <meta name="description" content="Safe, convenient, and technology-driven college transportation management for students, drivers, and administrators.">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/landing.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="site-logo">
+        <div class="logo-badge">🚌</div>
+        <span>College Transportation</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#routes" class="nav-link">Routes</a></li>
+          <li><a href="#features" class="nav-link">Transportation</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#tracking-preview" class="nav-link">Live Tracking</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/login.html" class="btn btn-secondary btn-sm">Login</a>
+        <a href="/register.html" class="btn btn-primary btn-sm">Register</a>
+        <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>⚡ Next-Generation Campus Mobility</span>
+        </div>
+        <h1 class="hero-heading">
+          Smart &amp; Reliable <br>
+          <span class="text-gradient">College Transportation</span>
+        </h1>
+        <p class="hero-subheading">
+          Safe, convenient and technology-driven transportation management for students, drivers and administrators.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="/register.html" class="btn btn-primary btn-lg">
+            Apply for Transportation →
+          </a>
+          <a href="#routes" class="btn btn-secondary btn-lg" style="background: rgba(255,255,255,0.1); color: #ffffff !important; border-color: rgba(255,255,255,0.2);">
+            Explore Routes
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual with Interactive Floating Cards -->
+      <div class="hero-visual">
+        <div class="hero-bus-card">
+          <div class="bus-svg-wrapper">
+            <!-- Modern College Bus SVG Vector Art -->
+            <svg width="340" height="180" viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="busBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#3b82f6" />
+                  <stop offset="100%" stop-color="#1d4ed8" />
+                </linearGradient>
+                <linearGradient id="glassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#bae6fd" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#0284c7" stop-opacity="0.8" />
+                </linearGradient>
+              </defs>
+              <!-- Road line -->
+              <rect x="10" y="148" width="320" height="4" rx="2" fill="#334155" />
+              <rect x="40" y="149" width="30" height="2" fill="#38bdf8" />
+              <rect x="120" y="149" width="30" height="2" fill="#38bdf8" />
+              <rect x="200" y="149" width="30" height="2" fill="#38bdf8" />
+              <rect x="280" y="149" width="30" height="2" fill="#38bdf8" />
+
+              <!-- Bus Body Chassis -->
+              <path d="M40 50C40 38.9543 48.9543 30 60 30H270C286.569 30 300 43.4315 300 60V125C300 127.761 297.761 130 295 130H45C42.2386 130 40 127.761 40 125V50Z" fill="url(#busBodyGrad)" />
+              <!-- Aerodynamic Front -->
+              <path d="M290 60L310 90V125C310 127.761 307.761 130 305 130H290V60Z" fill="#1e40af" />
+
+              <!-- Roof rack / AC unit -->
+              <rect x="110" y="24" width="110" height="7" rx="3.5" fill="#60a5fa" />
+
+              <!-- Front Windshield -->
+              <path d="M272 40H290L304 80H272V40Z" fill="url(#glassGrad)" />
+
+              <!-- Windows -->
+              <rect x="52" y="44" width="36" height="34" rx="4" fill="url(#glassGrad)" />
+              <rect x="96" y="44" width="38" height="34" rx="4" fill="url(#glassGrad)" />
+              <rect x="142" y="44" width="38" height="34" rx="4" fill="url(#glassGrad)" />
+              <rect x="188" y="44" width="38" height="34" rx="4" fill="url(#glassGrad)" />
+              <rect x="234" y="44" width="32" height="34" rx="4" fill="url(#glassGrad)" />
+
+              <!-- Bus Stripe Accent -->
+              <rect x="40" y="92" width="270" height="10" fill="#f59e0b" />
+
+              <!-- Headlight & Tail light -->
+              <rect x="306" y="106" width="6" height="12" rx="3" fill="#fde047" />
+              <rect x="38" y="106" width="4" height="12" rx="2" fill="#ef4444" />
+
+              <!-- Wheels -->
+              <circle cx="85" cy="130" r="22" fill="#0f172a" />
+              <circle cx="85" cy="130" r="12" fill="#cbd5e1" />
+              <circle cx="85" cy="130" r="5" fill="#475569" />
+
+              <circle cx="245" cy="130" r="22" fill="#0f172a" />
+              <circle cx="245" cy="130" r="12" fill="#cbd5e1" />
+              <circle cx="245" cy="130" r="5" fill="#475569" />
+
+              <!-- Fleet Badge on Bus -->
+              <text x="140" y="118" fill="#ffffff" font-size="10" font-weight="bold" letter-spacing="1">COLLEGE FLEET</text>
+            </svg>
+          </div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Fleet Bus #01 • GPS Active</div>
+          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.2rem;">Live Route: Madanapalle Campus Express</div>
+        </div>
+
+        <!-- 4 Floating Info Cards -->
+        <div class="floating-card fc-1">
+          <div class="floating-icon">🕒</div>
+          <div>
+            <div style="font-weight: 800; color: var(--navy-900);">24/7 Transportation</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Punctual Schedules</div>
+          </div>
+        </div>
+
+        <div class="floating-card fc-2">
+          <div class="floating-icon">📡</div>
+          <div>
+            <div style="font-weight: 800; color: var(--navy-900);">Live Bus Tracking</div>
+            <div style="font-size: 0.75rem; color: var(--success-dark);">Real-time Telemetry</div>
+          </div>
+        </div>
+
+        <div class="floating-card fc-3">
+          <div class="floating-icon">🛡️</div>
+          <div>
+            <div style="font-weight: 800; color: var(--navy-900);">Safe &amp; Reliable</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Verified Drivers</div>
+          </div>
+        </div>
+
+        <div class="floating-card fc-4">
+          <div class="floating-icon">💳</div>
+          <div>
+            <div style="font-weight: 800; color: var(--navy-900);">Easy Fee Payment</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Instant Digital Pass</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section-py" id="about">
+    <div class="container about-grid">
+      <!-- Left Column: Transportation Graphic -->
+      <div class="about-visual-card">
+        <div class="about-visual-badge">🎓 Smart Campus Mobility</div>
+        <h3 style="font-size: 1.85rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff;">
+          Dedicated to Student Commuter Excellence
+        </h3>
+        <p style="font-size: 0.95rem; color: #94a3b8; line-height: 1.6; margin-bottom: 2rem;">
+          Our digital management system seamlessly synchronizes modern transit scheduling, real-time GPS fleet monitoring, automated fee calculation, and encrypted digital bus passes.
+        </p>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-around;">
+          <div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--sky-400);">99.4%</div>
+            <div style="font-size: 0.75rem; color: #94a3b8;">On-time Arrival</div>
+          </div>
+          <div style="height: 35px; width: 1px; background: rgba(255,255,255,0.15);"></div>
+          <div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: #10b981;">100%</div>
+            <div style="font-size: 0.75rem; color: #94a3b8;">GPS Coverage</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Purpose & Animated Stats -->
+      <div>
+        <span class="section-tag">About Our Service</span>
+        <h2 class="section-title">About College Transportation</h2>
+        <p class="section-subtitle" style="margin-bottom: 1.5rem;">
+          The College Transportation Management System bridges the gap between students, parents, drivers, and transport administrators. Designed to replace outdated paperwork, our centralized cloud platform provides automated route assignment, transparent tiered fees, and instant verifiable passes.
+        </p>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+          Whether tracking morning pickup times, calculating distance-based transportation fees, or ensuring child safety with licensed verified fleet drivers, every detail is engineered for reliable daily commuting.
+        </p>
+
+        <!-- 4 Animated Counter Cards -->
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" data-target="50" data-suffix="+">0</div>
+            <div class="stat-label">Modern Fleet Buses</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="1000" data-suffix="+">0</div>
+            <div class="stat-label">Daily Commuter Students</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="25" data-suffix="+">0</div>
+            <div class="stat-label">Extensive Urban Routes</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="100" data-suffix="%">0</div>
+            <div class="stat-label">Digital Management</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section-py" id="features" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Core Capabilities</span>
+        <h2 class="section-title">Engineered for Frictionless Campus Transit</h2>
+        <p class="section-subtitle">
+          Comprehensive suite of smart transit features built to manage daily fleet operations effortlessly.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">📍</div>
+          <h3 class="feature-title">Live Bus Tracking</h3>
+          <p class="feature-desc">
+            Track your assigned bus in real time with live GPS telemetry, current speed, and dynamic ETA to your stop.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🗺️</div>
+          <h3 class="feature-title">Smart Route Management</h3>
+          <p class="feature-desc">
+            Manage routes and pickup stops efficiently with sequenced timetables, student capacities, and fleet optimization.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🏷️</div>
+          <h3 class="feature-title">Location-Based Fees</h3>
+          <p class="feature-desc">
+            Transportation fee is calculated transparently based on your pickup location zone, distance, and fleet maintenance.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🎫</div>
+          <h3 class="feature-title">Digital Bus Pass</h3>
+          <p class="feature-desc">
+            Access your bus pass digitally on your smartphone with verified QR code security and print-ready formal formatting.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">💳</div>
+          <h3 class="feature-title">Online Payments</h3>
+          <p class="feature-desc">
+            Make transportation fee payments easily via UPI QR code, Debit/Credit Card, or Net Banking with instant receipts.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🛡️</div>
+          <h3 class="feature-title">Safe Transportation</h3>
+          <p class="feature-desc">
+            Better transportation management and monitoring through licensed vetted drivers, emergency alerts, and strict rosters.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section-py" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Simple Journey</span>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">
+          Follow our seamless seven-step process from initial registration to tracking your bus every morning.
+        </p>
+      </div>
+
+      <div class="timeline-wrapper">
+        <div class="timeline-connector"></div>
+        <div class="timeline-steps">
+          <!-- Step 01 -->
+          <div class="timeline-step">
+            <div class="step-circle">01</div>
+            <div class="step-title">Register</div>
+            <div class="step-desc">Create your student account with college roll number.</div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="timeline-step">
+            <div class="step-circle">02</div>
+            <div class="step-title">Select Stop</div>
+            <div class="step-desc">Choose your daily home pickup location point.</div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="timeline-step">
+            <div class="step-circle">03</div>
+            <div class="step-title">Get Route &amp; Fee</div>
+            <div class="step-desc">System maps your route and computes exact annual fee.</div>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="timeline-step">
+            <div class="step-circle">04</div>
+            <div class="step-title">Apply</div>
+            <div class="step-desc">Submit your official college bus application online.</div>
+          </div>
+
+          <!-- Step 05 -->
+          <div class="timeline-step">
+            <div class="step-circle">05</div>
+            <div class="step-title">Pay Fee</div>
+            <div class="step-desc">Pay safely via UPI QR, card, or net banking gateway.</div>
+          </div>
+
+          <!-- Step 06 -->
+          <div class="timeline-step">
+            <div class="step-circle">06</div>
+            <div class="step-title">Get Bus Pass</div>
+            <div class="step-desc">Instantly download or print your verified Digital Pass.</div>
+          </div>
+
+          <!-- Step 07 -->
+          <div class="timeline-step">
+            <div class="step-circle">07</div>
+            <div class="step-title">Track Bus</div>
+            <div class="step-desc">View real-time bus location and ETA to your pickup stop.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bus Routes Section -->
+  <section class="section-py" id="routes" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Transit Network</span>
+        <h2 class="section-title">Explore Active Bus Routes</h2>
+        <p class="section-subtitle">
+          Reliable arterial connectivity spanning all key town junctions, highway corridors, and residential sectors.
+        </p>
+      </div>
+
+      <div class="routes-grid" id="routesContainer">
+        <!-- Loaded dynamically from /api/routes -->
+        <div class="text-center" style="grid-column: 1/-1; padding: 2rem;">
+          <span class="spinner"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Tracking Preview Section -->
+  <section class="section-py" id="tracking-preview">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Demonstration</span>
+        <h2 class="section-title">Live Bus Tracking Preview</h2>
+        <p class="section-subtitle">
+          Experience our interactive tracking simulator showcasing real-time location telemetry and automated stop arrival updates.
+        </p>
+      </div>
+
+      <div class="tracking-preview-card">
+        <div class="tracking-header">
+          <div>
+            <span class="badge badge-success pulse-badge" style="margin-bottom: 0.4rem;">
+              <span class="badge-dot"></span> LIVE IN TRANSIT
+            </span>
+            <h3 style="font-size: 1.45rem; font-weight: 800; margin-top: 0.35rem;">
+              Route 01: Madanapalle Town - Campus Express 🚌
+            </h3>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.8rem; color: #94a3b8;">Telematics Frequency</div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: #38bdf8;">GPS Active • 1s Refresh</div>
+          </div>
+        </div>
+
+        <!-- Visual Map Line Container -->
+        <div class="tracking-canvas-container">
+          <div class="map-route-line">
+            <div class="map-route-line-progress" id="previewProgressBar" style="width: 42%;"></div>
+
+            <!-- Stop 1: START -->
+            <div class="map-stop-node passed">
+              <div class="map-stop-label">START<br><span style="font-size: 0.7rem; color: #94a3b8;">RTC Stand</span></div>
+            </div>
+
+            <!-- Stop 2: STOP 1 -->
+            <div class="map-stop-node passed">
+              <div class="map-stop-label">STOP 1<br><span style="font-size: 0.7rem; color: #94a3b8;">Nehru Circle</span></div>
+            </div>
+
+            <!-- Stop 3: STOP 2 -->
+            <div class="map-stop-node current">
+              <div class="map-stop-label">STOP 2<br><span style="font-size: 0.7rem; color: #94a3b8;">Rama Rao Colony</span></div>
+            </div>
+
+            <!-- Stop 4: YOUR LOCATION -->
+            <div class="map-stop-node target-location">
+              <div class="map-stop-label" style="color: #f59e0b; font-weight: 800;">
+                YOUR LOCATION<br><span style="font-size: 0.7rem;">Angallu Junction</span>
+              </div>
+            </div>
+
+            <!-- Stop 5: STOP 4 -->
+            <div class="map-stop-node">
+              <div class="map-stop-label">STOP 4<br><span style="font-size: 0.7rem; color: #94a3b8;">Bypass Cross</span></div>
+            </div>
+
+            <!-- Stop 6: COLLEGE -->
+            <div class="map-stop-node">
+              <div class="map-stop-label">COLLEGE<br><span style="font-size: 0.7rem; color: #10b981; font-weight: 800;">Main Campus</span></div>
+            </div>
+
+            <!-- Animated Bus Marker -->
+            <div class="moving-bus-marker" id="previewBusMarker">
+              🚌
+            </div>
+          </div>
+        </div>
+
+        <!-- Telemetry Data Bar -->
+        <div class="tracking-info-bar">
+          <div class="info-item">
+            <div class="info-label">Bus Number</div>
+            <div class="info-value">Bus 01</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Assigned Driver</div>
+            <div class="info-value">Suresh Kumar</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Current Speed</div>
+            <div class="info-value" id="previewSpeed">42 km/h</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">ETA to Your Stop</div>
+            <div class="info-value" style="color: #38bdf8;" id="previewEta">18 mins</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Last Updated</div>
+            <div class="info-value" id="previewUpdated">Just now</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section-py" id="contact" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title">Contact Transportation Office</h2>
+        <p class="section-subtitle">
+          Have queries regarding bus passes, routes, fees, or special transit accommodations? Contact our logistics desk.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Information Block -->
+        <div>
+          <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--navy-900); margin-bottom: 1.5rem;">
+            Transportation Department
+          </h3>
+
+          <div class="contact-info-block">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-detail-title">Office Address</div>
+              <div class="contact-detail-text">
+                Central Transport Complex, Ground Floor, Administrative Block, College Campus, Madanapalle - 517325
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-detail-title">Helpdesk Phone</div>
+              <div class="contact-detail-text">
+                +91 98450 11223 / +91 8571 280001
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-detail-title">Official Email</div>
+              <div class="contact-detail-text">
+                transport@college.edu / support.transit@college.edu
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-icon">⏰</div>
+            <div>
+              <div class="contact-detail-title">Office Hours</div>
+              <div class="contact-detail-text">
+                Monday - Saturday: 07:30 AM - 06:30 PM (Fleet Hotline: 24/7)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Validated Contact Form -->
+        <div>
+          <form id="contactForm">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">Your Name *</label>
+                <input type="text" class="form-control" id="contactName" required placeholder="Full Name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-control" id="contactEmail" required placeholder="name@email.com" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Subject *</label>
+              <input type="text" class="form-control" id="contactSubject" required placeholder="e.g. Route Inquiry or Bus Pass Renewal" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Message *</label>
+              <textarea class="form-control" id="contactMessage" rows="4" required placeholder="Describe your question or transportation requirement..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Details Modal -->
+  <div class="modal-overlay" id="routeModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">Route Schedule &amp; Stops</div>
+        <button class="modal-close" onclick="closeRouteModal()">✕</button>
+      </div>
+      <div class="modal-body" id="routeModalBody">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="site-logo" style="color: #ffffff;">
+          <div class="logo-badge">🚌</div>
+          <span>College Transportation</span>
+        </a>
+        <p>
+          High-performance, digital-first college transit management platform offering GPS tracking, seamless fee payment, and digital pass verification.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Service</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#contact">Contact Support</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Transportation</h4>
+        <ul class="footer-links">
+          <li><a href="#routes">Active Bus Routes</a></li>
+          <li><a href="#tracking-preview">Live Bus Tracking</a></li>
+          <li><a href="/register.html">Apply for Bus Pass</a></li>
+          <li><a href="/login.html">Fee Payment Portal</a></li>
+          <li><a href="/login.html">Driver In-Bus Console</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Portals</h4>
+        <ul class="footer-links">
+          <li><a href="/login.html">Student Sign In</a></li>
+          <li><a href="/login.html">Driver Sign In</a></li>
+          <li><a href="/login.html">Admin Dashboard</a></li>
+          <li><a href="/register.html">Student Registration</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        &copy; 2026 College Transportation Management System. All rights reserved.
+      </div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="#home">Privacy Policy</a>
+        <a href="#home">Terms of Commute</a>
+        <a href="#home">Safety Guidelines</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

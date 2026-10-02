@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - College Transportation Management System</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-badge" style="width: 2.2rem; height: 2.2rem; font-size: 1.1rem; background: var(--primary);">🚌</div>
+        <div>
+          <div class="sidebar-brand-title">Transport OS</div>
+          <div class="sidebar-brand-sub">Admin Portal</div>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-container">
+        <div class="sidebar-group-title">Main Operations</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a class="sidebar-link active" data-view="dashboard">
+              <span class="sidebar-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="tracking">
+              <span class="sidebar-icon">📡</span>
+              <span>Live Tracking Radar</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-group-title">Fleet &amp; Commute</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="students">
+              <span class="sidebar-icon">👨‍🎓</span>
+              <span>Students</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="drivers">
+              <span class="sidebar-icon">👮‍♂️</span>
+              <span>Drivers</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="buses">
+              <span class="sidebar-icon">🚌</span>
+              <span>Buses</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="routes">
+              <span class="sidebar-icon">🗺️</span>
+              <span>Routes &amp; Map Distance</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="locations">
+              <span class="sidebar-icon">📍</span>
+              <span>Locations &amp; Stops</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="trans-apps">
+              <span class="sidebar-icon">📋</span>
+              <span>Transportation Apps</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-group-title">Finance &amp; Passes</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item has-fee-submenu">
+            <a class="sidebar-link" data-view="fees">
+              <span class="sidebar-icon">💰</span>
+              <span>FEE MANAGEMENT</span>
+            </a>
+            <ul class="sidebar-fee-submenu" style="list-style: none; padding-left: 2rem; margin: 0.35rem 0 0.5rem 0; display: flex; flex-direction: column; gap: 0.25rem;">
+              <li>
+                <a class="sidebar-sublink fee-nav-link" data-subtab="fee-structures" style="cursor: pointer; font-size: 0.82rem; color: #94a3b8; display: flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.5rem; border-radius: 4px; text-decoration: none; transition: all 0.2s;">
+                  <span>🚌</span> <span>Bus Fee Structure</span>
+                </a>
+              </li>
+              <li>
+                <a class="sidebar-sublink fee-nav-link" data-subtab="student-fee-records" style="cursor: pointer; font-size: 0.82rem; color: #94a3b8; display: flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.5rem; border-radius: 4px; text-decoration: none; transition: all 0.2s;">
+                  <span>📋</span> <span>Student Fee Records</span>
+                </a>
+              </li>
+              <li>
+                <a class="sidebar-sublink fee-nav-link" data-subtab="paid-pending-status" style="cursor: pointer; font-size: 0.82rem; color: #94a3b8; display: flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.5rem; border-radius: 4px; text-decoration: none; transition: all 0.2s;">
+                  <span>⚖️</span> <span>Paid / Pending Status</span>
+                </a>
+              </li>
+              <li>
+                <a class="sidebar-sublink fee-nav-link" data-subtab="payment-processing" style="cursor: pointer; font-size: 0.82rem; color: #94a3b8; display: flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.5rem; border-radius: 4px; text-decoration: none; transition: all 0.2s;">
+                  <span>💳</span> <span>Payment Processing</span>
+                </a>
+              </li>
+              <li>
+                <a class="sidebar-sublink fee-nav-link" data-subtab="fee-history" style="cursor: pointer; font-size: 0.82rem; color: #94a3b8; display: flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.5rem; border-radius: 4px; text-decoration: none; transition: all 0.2s;">
+                  <span>📜</span> <span>Payment History</span>
+                </a>
+              </li>
+              <li>
+                <a class="sidebar-sublink fee-nav-link" data-subtab="receipt-gen" style="cursor: pointer; font-size: 0.82rem; color: #94a3b8; display: flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.5rem; border-radius: 4px; text-decoration: none; transition: all 0.2s;">
+                  <span>🧾</span> <span>Receipt Generation</span>
+                </a>
+              </li>
+              <li>
+                <a class="sidebar-sublink fee-nav-link" data-subtab="late-fee" style="cursor: pointer; font-size: 0.82rem; color: #94a3b8; display: flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.5rem; border-radius: 4px; text-decoration: none; transition: all 0.2s;">
+                  <span>⚠️</span> <span>Late Fee / Fine</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="payments">
+              <span class="sidebar-icon">💳</span>
+              <span>Payments Ledger</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="receipts">
+              <span class="sidebar-icon">📄</span>
+              <span>Receipts</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="pass-apps">
+              <span class="sidebar-icon">🎫</span>
+              <span>Bus Pass Applications</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="passes">
+              <span class="sidebar-icon">🪪</span>
+              <span>Active Bus Passes</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="cancellations">
+              <span class="sidebar-icon">⚠️</span>
+              <span>Cancellation Requests</span>
+              <span class="sidebar-badge" id="sidebarCancellationBadge" style="display: none;">0</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-group-title">Analytics &amp; System</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="notifications">
+              <span class="sidebar-icon">🔔</span>
+              <span>Notifications</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="reports">
+              <span class="sidebar-icon">📈</span>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="profile">
+              <span class="sidebar-icon">👤</span>
+              <span>Admin Profile</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="/" target="_blank">
+              <span class="sidebar-icon">🌐</span>
+              <span>Landing Page</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" onclick="Auth.logout()">
+              <span class="sidebar-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- User Profile Box -->
+      <div class="sidebar-footer">
+        <div class="user-mini-avatar" style="border-color: #2dd4bf;">👨‍💼</div>
+        <div class="user-mini-info">
+          <div class="user-mini-name admin-profile-name">Dr. Ramesh Sharma</div>
+          <div class="user-mini-role admin-profile-role">Director of Transport</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle Navigation">☰</button>
+          <div class="breadcrumb-trail">
+            <span>Admin</span>
+            <span>/</span>
+            <span class="breadcrumb-current" id="breadcrumbCurrent">Dashboard</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="header-quick-search">
+            <span>🔍</span>
+            <input type="text" id="adminGlobalSearch" class="form-control" placeholder="Quick search..." />
+          </div>
+
+          <button class="notification-bell-btn" onclick="document.querySelector('[data-view=notifications]').click()" aria-label="Notifications">
+            🔔
+            <span class="notification-counter" id="adminNotifCounter" style="display: none;">0</span>
+          </button>
+
+          <a href="/login.html" class="btn btn-secondary btn-sm" onclick="Auth.logout()">Sign Out</a>
+        </div>
+      </header>
+
+      <!-- Page Body Area -->
+      <main class="page-content-area">
+
+        <!-- VIEW 1: DASHBOARD HOME -->
+        <section class="dashboard-view active" id="view-dashboard">
+          <div class="welcome-banner" style="background: linear-gradient(135deg, #111827 0%, #0f766e 100%);">
+            <div>
+              <h1 class="welcome-title">Good Morning, Admin 👋</h1>
+              <p class="welcome-sub">College Transportation Fleet &amp; Commute Management System connected live to MySQL.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn btn-primary" onclick="openAddStudentModal()">+ Register Student</button>
+              <button class="btn btn-secondary" onclick="openAddRouteModal()">+ Create Route</button>
+            </div>
+          </div>
+
+          <!-- 8 Metric Stats Cards (Connected to MySQL) -->
+          <div class="metrics-grid-8">
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #ccfbf1; color: var(--primary);">👨‍🎓</div>
+                <span class="metric-trend trend-up">MySQL</span>
+              </div>
+              <div class="metric-val" id="statTotalStudents">--</div>
+              <div class="metric-label">Total Registered Students</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #d1fae5; color: var(--success);">🎫</div>
+                <span class="metric-trend trend-up">Active</span>
+              </div>
+              <div class="metric-val" id="statActiveStudents">--</div>
+              <div class="metric-label">Active Pass Holders</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #e0f2fe; color: #0284c7;">🚌</div>
+                <span class="metric-trend trend-up">Fleet</span>
+              </div>
+              <div class="metric-val" id="statTotalBuses">--</div>
+              <div class="metric-label">Total Fleet Buses</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #ecfdf5; color: var(--success);">🟢</div>
+                <span class="metric-trend trend-up">In Service</span>
+              </div>
+              <div class="metric-val" id="statActiveBuses">--</div>
+              <div class="metric-label">Active Buses in Service</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #fef3c7; color: var(--warning-dark);">👮‍♂️</div>
+                <span class="metric-trend trend-up">Licensed</span>
+              </div>
+              <div class="metric-val" id="statTotalDrivers">--</div>
+              <div class="metric-label">Total Licensed Drivers</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #f1f5f9; color: #334155;">🗺️</div>
+                <span class="metric-trend trend-up">Routes</span>
+              </div>
+              <div class="metric-val" id="statTotalRoutes">--</div>
+              <div class="metric-label">Operational Routes</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #ecfdf5; color: var(--success);">💳</div>
+                <span class="metric-trend trend-up">Verified</span>
+              </div>
+              <div class="metric-val" id="statRevenue">--</div>
+              <div class="metric-label">Collected Revenue</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #fef2f2; color: var(--danger);">⚠️</div>
+                <span class="metric-trend trend-alert">Action</span>
+              </div>
+              <div class="metric-val" id="statPendingRequests">--</div>
+              <div class="metric-label">Pending Cancellation Requests</div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="charts-grid-2">
+            <div class="chart-card">
+              <div class="chart-header">
+                <div>
+                  <h3 class="chart-title">Bus Fleet Capacity Utilization</h3>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Occupied seats vs total passenger capacity from MySQL</div>
+                </div>
+                <span class="badge badge-info">Fleet Live</span>
+              </div>
+              <div class="chart-container" id="busUsageChartContainer">
+                <div class="text-center" style="margin: auto;"><span class="spinner"></span></div>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <div>
+                  <h3 class="chart-title">Commuters by Academic Department</h3>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Enrolled student distribution from database</div>
+                </div>
+              </div>
+              <div class="chart-container" id="branchDonutContainer">
+                <div class="text-center" style="margin: auto;"><span class="spinner"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Row -->
+          <div class="chart-card" style="margin-top: 1.5rem;">
+            <div class="chart-header">
+              <h3 class="chart-title">Recent System Activity &amp; Notifications</h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Live from MySQL</span>
+            </div>
+            <div class="activity-list" id="recentActivityContainer">
+              <!-- Loaded via JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: STUDENTS MANAGEMENT (Requirement 38) -->
+        <section class="dashboard-view" id="view-students">
+          <div class="card" style="padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+              <div>
+                <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Manage Student Commuters</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">View, update profile info, assign routes/buses, and manage student fee records</p>
+              </div>
+              <button class="btn btn-primary" onclick="openAddStudentModal()">+ Add Student</button>
+            </div>
+
+            <!-- Filters -->
+            <div style="display: flex; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+              <input type="text" id="studentSearchInput" class="form-control" placeholder="Search by name, roll no (10-char), admission no..." style="max-width: 320px;" />
+              <select id="studentFeeFilter" class="form-control form-select" style="max-width: 200px;">
+                <option value="">All Payment Statuses</option>
+                <option value="PAID">PAID</option>
+                <option value="PARTIALLY PAID">PARTIALLY PAID</option>
+                <option value="UNPAID">UNPAID</option>
+              </select>
+            </div>
+
+            <!-- Table -->
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Roll Number</th>
+                    <th>Student Name</th>
+                    <th>Course</th>
+                    <th>Admission No</th>
+                    <th>Parent Name</th>
+                    <th>Phone</th>
+                    <th>Pickup Stop</th>
+                    <th>Route</th>
+                    <th>Bus</th>
+                    <th>Fee Status</th>
+                    <th>Pass Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                  <!-- Populated via loadStudentsView() -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 3: DRIVERS MANAGEMENT -->
+        <section class="dashboard-view" id="view-drivers">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+            <div>
+              <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Licensed Drivers Directory</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Assigned vehicles, licenses, contact information, and duty status</p>
+            </div>
+            <button class="btn btn-primary" onclick="openAddDriverModal()">+ Add New Driver</button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;" id="driversContainer">
+            <!-- Populated via loadDriversView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 4: BUSES MANAGEMENT -->
+        <section class="dashboard-view" id="view-buses">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+            <div>
+              <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Fleet Buses Management</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Vehicle registration, seating occupancy, fuel telemetry, and service status</p>
+            </div>
+            <button class="btn btn-primary" onclick="openAddBusModal()">+ Add Fleet Bus</button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;" id="busesContainer">
+            <!-- Populated via loadBusesView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 5: ROUTES & GOOGLE MAPS DISTANCE CALCULATOR (Requirements 8, 9, 33) -->
+        <section class="dashboard-view" id="view-routes">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+            <div>
+              <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Visual Route &amp; Google Map Distance Calculator</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Calculate actual route distance using map telemetry, view stops, and assign fleet buses</p>
+            </div>
+            <button class="btn btn-primary" onclick="openAddRouteModal()">+ Add New Route</button>
+          </div>
+
+          <!-- Interactive Route & Distance Calculator Card -->
+          <div class="card" style="padding: 1.75rem; margin-bottom: 2rem; border-left: 4px solid var(--primary);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+              <div>
+                <h3 style="font-size: 1.2rem; font-weight: 800; color: #111827;">🗺️ Interactive Map Route &amp; Distance Engine</h3>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Select Starting Point, Pickup Locations, and Destination to calculate route distance</div>
+              </div>
+              <div id="googleMapsApiStatusBadge">
+                <span class="badge badge-info">Map Engine Active</span>
+              </div>
+            </div>
+
+            <!-- Route points selector -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+              <div>
+                <label class="form-label">1. Starting Point</label>
+                <input type="text" id="mapCalcStart" class="form-control" placeholder="e.g. Madanapalle RTC Bus Stand" value="Madanapalle RTC Bus Stand" />
+              </div>
+              <div>
+                <label class="form-label">2. Intermediate Pickup Stop(s)</label>
+                <input type="text" id="mapCalcPickups" class="form-control" placeholder="e.g. Nehru Circle, Rama Rao Colony" value="Nehru Circle, Angallu Junction" />
+              </div>
+              <div>
+                <label class="form-label">3. Destination College</label>
+                <input type="text" id="mapCalcEnd" class="form-control" placeholder="Main College Campus" value="Main College Campus" />
+              </div>
+              <div style="display: flex; align-items: flex-end;">
+                <button class="btn btn-primary" style="width: 100%;" onclick="calculateRouteOnMap()">
+                  📍 Calculate Distance on Map
+                </button>
+              </div>
+            </div>
+
+            <!-- Calculated Distance Display Box (Requirement 8) -->
+            <div id="mapCalculatedDistanceBanner" style="background: #f0fdfa; border: 1px solid #99f6e4; padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--primary); font-weight: 700; letter-spacing: 0.05em;">Calculated Route Distance</div>
+                <div style="font-size: 1.75rem; font-weight: 900; color: #0f766e;" id="mapCalculatedDistanceText">Calculated Distance: 18.7 KM</div>
+                <div style="font-size: 0.85rem; color: #475569;" id="mapRouteWaypointsText">Start: Madanapalle RTC Stand ➔ Stop: Nehru Circle ➔ Stop: Angallu ➔ College Main Campus</div>
+              </div>
+              <div>
+                <button class="btn btn-secondary btn-sm" onclick="applyCalculatedDistanceToFee()">
+                  ⚡ Use for Fee Calculation →
+                </button>
+              </div>
+            </div>
+
+            <!-- Map View Container -->
+            <div id="adminRouteMapContainer" style="width: 100%; height: 380px; background: #0f172a; border-radius: var(--radius-md); overflow: hidden; position: relative;">
+              <!-- Rendered via JS using Google Maps API or interactive SVG/Canvas fallback -->
+            </div>
+          </div>
+
+          <!-- Existing Routes Cards List -->
+          <div id="routesManagementContainer">
+            <!-- Populated via loadRoutesView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 6: LOCATIONS & STOPS -->
+        <section class="dashboard-view" id="view-locations">
+          <div class="card" style="padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+              <div>
+                <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Pickup Stops &amp; Distance Zones</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Designated morning pickup and evening drop timings stored in MySQL</p>
+              </div>
+              <button class="btn btn-primary" onclick="openAddLocationModal()">+ Add Pickup Stop</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Stop Name</th>
+                    <th>Pricing Zone</th>
+                    <th>Distance</th>
+                    <th>Assigned Route</th>
+                    <th>Morning Pickup</th>
+                    <th>Evening Drop</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="locationsTableBody">
+                  <!-- Populated via loadLocationsView() -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 7: TRANSPORTATION APPLICATIONS -->
+        <section class="dashboard-view" id="view-trans-apps">
+          <div class="card" style="padding: 1.5rem;">
+            <div style="margin-bottom: 1.5rem;">
+              <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Student Transportation Enrollment Applications</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Review new student commute enrollment requests and assign routes/buses</p>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Application ID</th>
+                    <th>Student Name</th>
+                    <th>Roll Number</th>
+                    <th>Course</th>
+                    <th>Pickup Stop</th>
+                    <th>Preferred Route</th>
+                    <th>Applied Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="transAppsTableBody">
+                  <!-- Populated via loadTransAppsView() -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 8: FEE MANAGEMENT (All 7 Functional Modules) -->
+        <section class="dashboard-view" id="view-fees">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Transportation Fee Management System</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Configure fee structures, manage student ledgers, process payments, generate receipts, and manage late fines</p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-primary btn-sm" onclick="switchFeeSubtab('fee-structures'); toggleForm('busFeeStructureFormCard')">+ New Fee Structure</button>
+              <button class="btn btn-secondary btn-sm" onclick="switchFeeSubtab('payment-processing')">💳 Process Payment</button>
+            </div>
+          </div>
+
+          <!-- 7 Submodules Navigation Tabs -->
+          <div style="display: flex; gap: 0.5rem; border-bottom: 2px solid #e5e4de; margin-bottom: 1.5rem; overflow-x: auto; padding-bottom: 0.25rem;">
+            <button class="btn btn-secondary btn-sm fee-subtab-btn active" data-subtab="fee-structures">1. Bus Fee Structure</button>
+            <button class="btn btn-secondary btn-sm fee-subtab-btn" data-subtab="student-fee-records">2. Student Fee Records</button>
+            <button class="btn btn-secondary btn-sm fee-subtab-btn" data-subtab="paid-pending-status">3. Paid / Pending Status</button>
+            <button class="btn btn-secondary btn-sm fee-subtab-btn" data-subtab="payment-processing">4. Payment Processing</button>
+            <button class="btn btn-secondary btn-sm fee-subtab-btn" data-subtab="fee-history">5. Payment History</button>
+            <button class="btn btn-secondary btn-sm fee-subtab-btn" data-subtab="receipt-gen">6. Receipt Generation</button>
+            <button class="btn btn-secondary btn-sm fee-subtab-btn" data-subtab="late-fee">7. Late Fee / Fine</button>
+            <button class="btn btn-secondary btn-sm fee-subtab-btn" data-subtab="fee-notifications">8. Fee Notifications</button>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- MODULE 1: BUS FEE STRUCTURE                -->
+          <!-- ========================================== -->
+          <div class="fee-subtab-content" id="subtab-fee-structures">
+            <!-- Form Card -->
+            <div class="card" id="busFeeStructureFormCard" style="padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--primary);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;" id="busFeeFormTitle">Add / Edit Bus Fee Structure</h3>
+                <span class="badge badge-info" id="busFeeFormModeBadge">Create Mode</span>
+              </div>
+              <form id="busFeeStructureForm" onsubmit="event.preventDefault(); saveBusFeeStructure();">
+                <input type="hidden" id="feeStructEditId" value="" />
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+                  <div>
+                    <label class="form-label">Route <span style="color: red;">*</span></label>
+                    <select id="feeStructRoute" class="form-control form-select" required onchange="onFeeStructureRouteChange()">
+                      <option value="">-- Select Route --</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Bus Number <span style="color: red;">*</span></label>
+                    <select id="feeStructBus" class="form-control form-select" required>
+                      <option value="">-- Select Bus --</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Fee Amount (₹) <span style="color: red;">*</span></label>
+                    <input type="number" id="feeStructAmount" class="form-control" placeholder="e.g. 36000" min="0" step="1" required />
+                  </div>
+                  <div>
+                    <label class="form-label">Academic Year <span style="color: red;">*</span></label>
+                    <input type="text" id="feeStructAcademicYear" class="form-control" placeholder="e.g. 2026-27" value="2026-27" required />
+                  </div>
+                  <div>
+                    <label class="form-label">Semester</label>
+                    <select id="feeStructSemester" class="form-control form-select">
+                      <option value="1">Semester 1</option>
+                      <option value="2">Semester 2</option>
+                      <option value="3">Semester 3</option>
+                      <option value="4">Semester 4</option>
+                      <option value="5">Semester 5</option>
+                      <option value="6">Semester 6</option>
+                      <option value="7">Semester 7</option>
+                      <option value="8">Semester 8</option>
+                      <option value="All">All Semesters (Annual)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Calculation Type</label>
+                    <select id="feeStructCalcType" class="form-control form-select">
+                      <option value="FIXED_ROUTE">Fixed Route Fee</option>
+                      <option value="PER_KM">Per Kilometer (Distance-based)</option>
+                    </select>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+                  <button type="button" class="btn btn-secondary" onclick="clearBusFeeStructureForm()">Clear</button>
+                  <button type="submit" class="btn btn-primary" id="btnSaveFeeStructure">Save</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Table Card -->
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;">Saved Bus Fee Structures</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Stored persistently in MySQL fee_structures table</p>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="loadFeeStructures()">🔄 Refresh</button>
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Route</th>
+                      <th>Bus Number</th>
+                      <th>Fee Amount</th>
+                      <th>Academic Year</th>
+                      <th>Semester</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="feeStructuresTableBody">
+                    <!-- Populated via loadFeeStructures() -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- MODULE 2: STUDENT FEE RECORDS              -->
+          <!-- ========================================== -->
+          <div class="fee-subtab-content" id="subtab-student-fee-records" style="display: none;">
+            <!-- Form Card -->
+            <div class="card" id="studentFeeRecordFormCard" style="padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--primary);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;" id="studentFeeFormTitle">Assign / Edit Student Fee Record</h3>
+                <span class="badge badge-info" id="studentFeeFormModeBadge">Add Mode</span>
+              </div>
+              <form id="studentFeeRecordForm" onsubmit="event.preventDefault(); saveStudentFeeRecord();">
+                <input type="hidden" id="studentFeeEditId" value="" />
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+                  <div>
+                    <label class="form-label">Student ID (Roll Number) <span style="color: red;">*</span></label>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <input type="text" id="studentFeeStudentId" class="form-control" placeholder="e.g. 244M1A3139" required onblur="lookupStudentForFee(this.value)" />
+                      <button type="button" class="btn btn-secondary btn-sm" onclick="lookupStudentForFee(document.getElementById('studentFeeStudentId').value)" title="Auto-fetch student details">🔍</button>
+                    </div>
+                    <small id="studentFeeLookupHint" style="font-size: 0.75rem; color: var(--text-muted);">Enter roll number to auto-populate</small>
+                  </div>
+                  <div>
+                    <label class="form-label">Student Name <span style="color: red;">*</span></label>
+                    <input type="text" id="studentFeeStudentName" class="form-control" placeholder="Student Full Name" required />
+                  </div>
+                  <div>
+                    <label class="form-label">Semester <span style="color: red;">*</span></label>
+                    <select id="studentFeeSemester" class="form-control form-select" required>
+                      <option value="1">Semester 1 (I)</option>
+                      <option value="2">Semester 2 (II)</option>
+                      <option value="3">Semester 3 (III)</option>
+                      <option value="4" selected>Semester 4 (IV)</option>
+                      <option value="5">Semester 5 (V)</option>
+                      <option value="6">Semester 6 (VI)</option>
+                      <option value="7">Semester 7 (VII)</option>
+                      <option value="8">Semester 8 (VIII)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Bus Number <span style="color: red;">*</span></label>
+                    <select id="studentFeeBusSelect" class="form-control form-select" required>
+                      <option value="">-- Select Bus --</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Route <span style="color: red;">*</span></label>
+                    <select id="studentFeeRouteSelect" class="form-control form-select" required onchange="onStudentFeeRouteChange()">
+                      <option value="">-- Select Route --</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Fee Amount (₹) <span style="color: red;">*</span></label>
+                    <input type="number" id="studentFeeAmount" class="form-control" placeholder="e.g. 36000" min="0" step="1" required />
+                  </div>
+                  <div>
+                    <label class="form-label">Academic Year</label>
+                    <input type="text" id="studentFeeAcademicYear" class="form-control" value="2026-27" />
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+                  <button type="button" class="btn btn-secondary" onclick="clearStudentFeeForm()">Clear</button>
+                  <button type="submit" class="btn btn-primary" id="btnSaveStudentFee">Save</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Table Card -->
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;">Student Fee Records in Database</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Connected with student enrollment and fleet allocation</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                  <input type="text" id="feeRecordSearchInput" class="form-control form-control-sm" placeholder="Search student or roll no..." style="width: 220px;" oninput="filterStudentFeeRecords()" />
+                  <button class="btn btn-secondary btn-sm" onclick="loadStudentFeeRecords()">🔄 Refresh</button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Student ID</th>
+                      <th>Student Name</th>
+                      <th>Semester</th>
+                      <th>Bus Number</th>
+                      <th>Route</th>
+                      <th>Fee Amount</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="studentFeeRecordsTableBody">
+                    <!-- Populated via loadStudentFeeRecords() -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- MODULE 3: PAID / PENDING STATUS            -->
+          <!-- ========================================== -->
+          <div class="fee-subtab-content" id="subtab-paid-pending-status" style="display: none;">
+            <!-- Summary Stats Card -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+              <div class="card" style="padding: 1.25rem; border-left: 4px solid var(--primary);">
+                <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Total Fee Assigned</div>
+                <div style="font-size: 1.6rem; font-weight: 900; color: #111827;" id="statTotalFeeAssigned">₹0</div>
+              </div>
+              <div class="card" style="padding: 1.25rem; border-left: 4px solid var(--emerald-600);">
+                <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Total Paid Amount</div>
+                <div style="font-size: 1.6rem; font-weight: 900; color: var(--emerald-600);" id="statTotalFeePaid">₹0</div>
+              </div>
+              <div class="card" style="padding: 1.25rem; border-left: 4px solid var(--danger);">
+                <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Total Pending Balance</div>
+                <div style="font-size: 1.6rem; font-weight: 900; color: var(--danger);" id="statTotalFeePending">₹0</div>
+              </div>
+              <div class="card" style="padding: 1.25rem; border-left: 4px solid #f59e0b;">
+                <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Automatic Fee Formula</div>
+                <div style="font-size: 0.82rem; color: #475569; margin-top: 0.25rem;">Pending = Total Fee - Paid<br>Status: PAID / PARTIALLY PAID / PENDING</div>
+              </div>
+            </div>
+
+            <!-- Table Card -->
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;">Live Student Fee Reconciliation &amp; Status</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Automatically calculated balances from MySQL database</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                  <input type="text" id="paidPendingSearchInput" class="form-control form-control-sm" placeholder="Search student or ID..." style="width: 200px;" oninput="filterPaidPendingStatus()" />
+                  <select id="paidPendingStatusFilter" class="form-control form-select form-control-sm" style="width: 170px;" onchange="filterPaidPendingStatus()">
+                    <option value="">All Payment Statuses</option>
+                    <option value="PAID">PAID</option>
+                    <option value="PARTIALLY PAID">PARTIALLY PAID</option>
+                    <option value="PENDING">PENDING</option>
+                  </select>
+                  <button class="btn btn-secondary btn-sm" onclick="loadPaidPendingStatus()">🔄 Refresh</button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Student ID</th>
+                      <th>Student Name</th>
+                      <th>Total Fee</th>
+                      <th>Paid Amount</th>
+                      <th>Pending Amount</th>
+                      <th>Payment Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="paidPendingTableBody">
+                    <!-- Populated via loadPaidPendingStatus() -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- MODULE 4: PAYMENT PROCESSING               -->
+          <!-- ========================================== -->
+          <div class="fee-subtab-content" id="subtab-payment-processing" style="display: none;">
+            <!-- Form Card -->
+            <div class="card" style="padding: 1.75rem; margin-bottom: 1.5rem; border-left: 4px solid var(--emerald-600);">
+              <div style="margin-bottom: 1.25rem;">
+                <h3 style="font-size: 1.2rem; font-weight: 800; color: #111827;">Payment Processing Engine</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Record student transportation payments, generate unique receipt, and auto-update pending balances</p>
+              </div>
+              <form id="adminPaymentForm" onsubmit="event.preventDefault(); submitAdminPayment();">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+                  <div>
+                    <label class="form-label">Student ID (Roll Number) <span style="color: red;">*</span></label>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <input type="text" id="payProcStudentId" class="form-control" placeholder="e.g. 244M1A3139" required onblur="lookupStudentForPayment(this.value)" />
+                      <button type="button" class="btn btn-secondary btn-sm" onclick="lookupStudentForPayment(document.getElementById('payProcStudentId').value)">🔍</button>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="form-label">Student Name</label>
+                    <input type="text" id="payProcStudentName" class="form-control" placeholder="Auto-fetched name" readonly style="background: #f8fafc;" />
+                  </div>
+                  <div>
+                    <label class="form-label">Current Pending Balance</label>
+                    <div id="payProcPendingDisplay" style="padding: 0.55rem 0.85rem; font-weight: 800; font-size: 1rem; border-radius: 6px; background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca;">
+                      Pending: ₹0
+                    </div>
+                  </div>
+                  <div>
+                    <label class="form-label">Payment Amount (₹) <span style="color: red;">*</span></label>
+                    <input type="number" id="payProcAmount" class="form-control" placeholder="e.g. 27000" min="1" step="1" required />
+                  </div>
+                  <div>
+                    <label class="form-label">Payment Method <span style="color: red;">*</span></label>
+                    <select id="payProcMethod" class="form-control form-select" required>
+                      <option value="UPI" selected>UPI</option>
+                      <option value="Cash">Cash</option>
+                      <option value="Card">Card</option>
+                      <option value="Online">Online</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Transaction ID</label>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <input type="text" id="payProcTxnId" class="form-control" placeholder="Auto-generated if blank" />
+                      <button type="button" class="btn btn-secondary btn-sm" onclick="generateRandomTxnIdForField()" title="Auto-generate ID">⚡</button>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="form-label">Payment Status</label>
+                    <select id="payProcStatus" class="form-control form-select">
+                      <option value="SUCCESSFUL" selected>SUCCESSFUL</option>
+                      <option value="PENDING ADMIN VERIFICATION">PENDING VERIFICATION</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Payment Date <span style="color: red;">*</span></label>
+                    <input type="date" id="payProcDate" class="form-control" required />
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+                  <button type="button" class="btn btn-secondary" onclick="clearAdminPaymentForm()">Clear</button>
+                  <button type="submit" class="btn btn-primary" id="btnSubmitPayment">Process &amp; Save Payment</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- In-Person Cash Verification Queue -->
+            <div class="card" style="padding: 1.5rem;">
+              <div style="margin-bottom: 1.25rem;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;">In-Person Cash Payment Verification Queue</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Approve or reject cash payments submitted by students</p>
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Txn ID</th>
+                      <th>Student Name</th>
+                      <th>Roll Number</th>
+                      <th>Amount</th>
+                      <th>Payment Mode</th>
+                      <th>Submission Date</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cashProcessingTableBody">
+                    <!-- Populated via loadCashVerificationQueue() -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- MODULE 5: PAYMENT HISTORY                  -->
+          <!-- ========================================== -->
+          <div class="fee-subtab-content" id="subtab-fee-history" style="display: none;">
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;">Global Payment History &amp; Ledger</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">All payments recorded in MySQL database</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <input type="text" id="payHistSearchInput" class="form-control form-control-sm" placeholder="Search Txn ID, student..." style="width: 200px;" oninput="filterFeeHistory()" />
+                  <select id="payHistMethodFilter" class="form-control form-select form-control-sm" style="width: 140px;" onchange="filterFeeHistory()">
+                    <option value="">All Methods</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
+                    <option value="Online">Online</option>
+                  </select>
+                  <select id="payHistStatusFilter" class="form-control form-select form-control-sm" style="width: 140px;" onchange="filterFeeHistory()">
+                    <option value="">All Statuses</option>
+                    <option value="SUCCESSFUL">SUCCESSFUL</option>
+                    <option value="PENDING ADMIN VERIFICATION">PENDING</option>
+                    <option value="REJECTED">REJECTED</option>
+                  </select>
+                  <button class="btn btn-secondary btn-sm" onclick="loadFeeHistory()">🔄 Refresh</button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Transaction ID</th>
+                      <th>Student ID</th>
+                      <th>Student Name</th>
+                      <th>Amount</th>
+                      <th>Payment Method</th>
+                      <th>Payment Date</th>
+                      <th>Payment Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="feeHistoryTableBody">
+                    <!-- Populated via loadFeeHistory() -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- MODULE 6: RECEIPT GENERATION               -->
+          <!-- ========================================== -->
+          <div class="fee-subtab-content" id="subtab-receipt-gen" style="display: none;">
+            <!-- Search & Selected Receipt Card -->
+            <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--primary);">
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem;">Select &amp; Generate Official Receipt</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">Search a payment by Student ID or Transaction ID to generate, view, print, or download official receipt</p>
+              
+              <div style="display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+                <input type="text" id="receiptSearchQuery" class="form-control" placeholder="Enter Student ID (e.g. 244M1A3139) or Transaction ID..." style="max-width: 380px;" />
+                <button class="btn btn-primary" onclick="searchPaymentForReceipt()">🔍 Find Payment</button>
+              </div>
+
+              <!-- Selected Receipt Preview Box -->
+              <div id="receiptSelectedContainer" style="display: none; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-md); padding: 1.25rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                  <div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Receipt Number</div>
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--primary);" id="prevReceiptNo">--</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Transaction ID</div>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #111827;" id="prevReceiptTxnId">--</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Student ID</div>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #111827;" id="prevReceiptStudentId">--</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Student Name</div>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #111827;" id="prevReceiptStudentName">--</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Amount</div>
+                    <div style="font-size: 1.1rem; font-weight: 800; color: var(--emerald-600);" id="prevReceiptAmount">₹0</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Payment Method</div>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #111827;" id="prevReceiptMethod">--</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Receipt Date</div>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #111827;" id="prevReceiptDate">--</div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; justify-content: flex-end; flex-wrap: wrap;">
+                  <button class="btn btn-primary btn-sm" id="btnGenReceiptAction" onclick="generateReceiptFromPreview()">⚡ Generate Receipt</button>
+                  <button class="btn btn-secondary btn-sm" id="btnViewReceiptAction" onclick="viewReceiptFromPreview()">👁️ View Receipt</button>
+                  <button class="btn btn-secondary btn-sm" onclick="printReceiptFromPreview()">🖨️ Print Receipt</button>
+                  <button class="btn btn-secondary btn-sm" onclick="downloadReceiptFromPreview()">📥 Download Receipt</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- All Generated Receipts Table -->
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;">All Stored Receipts Directory</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Unique 11-character verified receipts from MySQL</p>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="loadReceiptsDirectory()">🔄 Refresh</button>
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Receipt Number</th>
+                      <th>Transaction ID</th>
+                      <th>Student ID</th>
+                      <th>Student Name</th>
+                      <th>Amount</th>
+                      <th>Payment Method</th>
+                      <th>Receipt Date</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="receiptsDirectoryTableBody">
+                    <!-- Populated via loadReceiptsDirectory() -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- MODULE 7: LATE FEE / FINE                  -->
+          <!-- ========================================== -->
+          <div class="fee-subtab-content" id="subtab-late-fee" style="display: none;">
+            <!-- Form Card -->
+            <div class="card" id="lateFeeFormCard" style="padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--danger);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;" id="lateFeeFormTitle">Add / Edit Late Fee Fine</h3>
+                <span class="badge badge-danger" id="lateFeeFormModeBadge">Impose Penalty</span>
+              </div>
+              <form id="lateFeeForm" onsubmit="event.preventDefault(); saveLateFeeRecord();">
+                <input type="hidden" id="lateFeeEditId" value="" />
+                <input type="hidden" id="lateFeeRecordId" value="" />
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+                  <div>
+                    <label class="form-label">Student ID (Roll Number) <span style="color: red;">*</span></label>
+                    <div style="display: flex; gap: 0.35rem;">
+                      <input type="text" id="lateFeeStudentId" class="form-control" placeholder="e.g. 244M1A3139" required onblur="lookupStudentForFine(this.value)" />
+                      <button type="button" class="btn btn-secondary btn-sm" onclick="lookupStudentForFine(document.getElementById('lateFeeStudentId').value)">🔍</button>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="form-label">Student Name</label>
+                    <input type="text" id="lateFeeStudentName" class="form-control" placeholder="Auto-filled" readonly style="background: #f8fafc;" />
+                  </div>
+                  <div>
+                    <label class="form-label">Semester</label>
+                    <input type="text" id="lateFeeSemester" class="form-control" placeholder="Auto-filled" readonly style="background: #f8fafc;" />
+                  </div>
+                  <div>
+                    <label class="form-label">Pending Amount (₹)</label>
+                    <input type="number" id="lateFeePendingAmount" class="form-control" placeholder="0" readonly style="background: #f8fafc; font-weight: 700; color: #b91c1c;" />
+                  </div>
+                  <div>
+                    <label class="form-label">Late Fee / Fine (₹) <span style="color: red;">*</span></label>
+                    <input type="number" id="lateFeeAmount" class="form-control" placeholder="e.g. 100" min="1" step="1" required oninput="calculateLateFeeTotalPayable()" />
+                  </div>
+                  <div>
+                    <label class="form-label">Total Payable (₹) <small>(Pending + Late Fee)</small></label>
+                    <input type="number" id="lateFeeTotalPayable" class="form-control" placeholder="0" readonly style="background: #ecfdf5; font-weight: 800; color: #047857;" />
+                  </div>
+                  <div style="grid-column: 1 / -1;">
+                    <label class="form-label">Fine Reason / Remarks</label>
+                    <input type="text" id="lateFeeReason" class="form-control" placeholder="e.g. Overdue transportation fee penalty" value="Overdue transportation fee penalty" />
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+                  <button type="button" class="btn btn-secondary" onclick="clearLateFeeForm()">Clear</button>
+                  <button type="submit" class="btn btn-primary" id="btnSaveLateFee">Save Late Fee</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Table Card -->
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;">Late Fees &amp; Penalty Fines</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Persistent penalty records directly modifying student total payable in MySQL</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <input type="text" id="lateFeeSearchInput" class="form-control form-control-sm" placeholder="Search student or roll no..." style="width: 220px;" oninput="filterLateFeesList()" />
+                  <button class="btn btn-secondary btn-sm" onclick="loadLateFeesList()">🔄 Refresh</button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Student ID</th>
+                      <th>Student Name</th>
+                      <th>Semester</th>
+                      <th>Pending Amount</th>
+                      <th>Late Fee</th>
+                      <th>Total Payable</th>
+                      <th>Reason</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="lateFeesTableBody">
+                    <!-- Populated via loadLateFeesList() -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- MODULE 8: FEE NOTIFICATIONS                -->
+          <!-- ========================================== -->
+          <div class="fee-subtab-content" id="subtab-fee-notifications" style="display: none;">
+            <div class="card" style="padding: 1.5rem;">
+              <div style="margin-bottom: 1.25rem;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #111827;">Automated Fee Alerts &amp; Due Notifications</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Audit log of fee assigned, overdue, and payment receipt alerts</p>
+              </div>
+              <div id="feeNotificationsListContainer">
+                <!-- Loaded via JS -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 9: PAYMENTS LEDGER (Requirement 26) -->
+        <section class="dashboard-view" id="view-payments">
+          <div class="card" style="padding: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Fee Payments Ledger</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">All verified digital &amp; cash transactions stored in MySQL</p>
+              </div>
+              <div style="display: flex; gap: 0.75rem;">
+                <input type="text" id="paymentsSearchInput" class="form-control" placeholder="Search Txn ID, student, receipt..." style="max-width: 280px;" />
+                <select id="paymentsStatusFilter" class="form-control form-select" style="max-width: 180px;">
+                  <option value="">All Statuses</option>
+                  <option value="SUCCESSFUL">SUCCESSFUL</option>
+                  <option value="PENDING ADMIN VERIFICATION">PENDING VERIFICATION</option>
+                  <option value="REJECTED">REJECTED</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Transaction ID</th>
+                    <th>Receipt Number</th>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Amount</th>
+                    <th>Payment Mode</th>
+                    <th>Payment Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminPaymentsTableBody">
+                  <!-- Populated via loadAdminPaymentsView() -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 10: RECEIPTS VIEWER -->
+        <section class="dashboard-view" id="view-receipts">
+          <div class="card" style="padding: 1.5rem;">
+            <div style="margin-bottom: 1.5rem;">
+              <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Official Receipts Repository</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Verified receipts with 11-char sequence and words conversion directly from MySQL</p>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Receipt Number</th>
+                    <th>Transaction ID</th>
+                    <th>Student Name</th>
+                    <th>Roll Number</th>
+                    <th>Amount</th>
+                    <th>Payment Mode</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="receiptsTableBody">
+                  <!-- Populated via loadReceiptsView() -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 11: BUS PASS APPLICATIONS (Requirements 29, 30, 32) -->
+        <section class="dashboard-view" id="view-pass-apps">
+          <div class="card" style="padding: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Bus Pass Applications Queue</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Review post-payment bus pass requests and issue cryptographic digital transit passes</p>
+              </div>
+              <div style="display: flex; gap: 0.75rem;">
+                <button class="btn btn-secondary btn-sm pass-filter-btn active" data-filter="">All Applications</button>
+                <button class="btn btn-secondary btn-sm pass-filter-btn" data-filter="PENDING">Pending Review</button>
+                <button class="btn btn-secondary btn-sm pass-filter-btn" data-filter="APPROVED">Approved</button>
+                <button class="btn btn-secondary btn-sm pass-filter-btn" data-filter="REJECTED">Rejected</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Student Name</th>
+                    <th>Student ID</th>
+                    <th>Roll Number</th>
+                    <th>Course</th>
+                    <th>Bus Number</th>
+                    <th>Route</th>
+                    <th>Pickup Location</th>
+                    <th>Fee Status</th>
+                    <th>Application Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="passAppsTableBody">
+                  <!-- Populated via loadPassAppsView() -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 12: ACTIVE BUS PASSES -->
+        <section class="dashboard-view" id="view-passes">
+          <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Issued Digital Bus Passes</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Active cryptographic QR transit passes</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 2rem;" id="passesContainer">
+            <!-- Populated via loadPassesView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 13: FLEET LIVE TRACKING RADAR (Requirements 33, 34) -->
+        <section class="dashboard-view" id="view-tracking">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <div>
+              <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Live Fleet Telemetry Hub</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Real-time monitoring across all campus transit lines (from live_locations in MySQL)</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="loadFleetTrackingView()">🔄 Refresh Radar</button>
+          </div>
+
+          <div id="fleetTrackingContainer">
+            <!-- Populated via loadFleetTrackingView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 14: CANCELLATION REQUESTS (Requirement 36) -->
+        <section class="dashboard-view" id="view-cancellations">
+          <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Commute Cancellation Requests</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Review and approve student transportation opt-outs. Historical payments &amp; receipts are preserved in MySQL.</p>
+          </div>
+
+          <div id="cancellationsContainer" style="max-width: 860px;">
+            <!-- Populated via loadCancellationsView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 15: NOTIFICATIONS (Requirement 37) -->
+        <section class="dashboard-view" id="view-notifications">
+          <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">System Notifications &amp; Alerts</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">All administrative notifications stored in MySQL</p>
+          </div>
+          <div id="adminNotificationsListContainer" style="max-width: 760px;">
+            <!-- Loaded via JS -->
+          </div>
+        </section>
+
+        <!-- VIEW 16: REPORTS -->
+        <section class="dashboard-view" id="view-reports">
+          <div class="card" style="padding: 1.75rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem;">Fleet Operational Reports</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Export comprehensive audit reports for administration</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+              <div class="card" style="padding: 1.25rem; border: 1px solid #e5e4de; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: #111827;">Student Roster</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Complete list of commuters with route &amp; bus details</p>
+                <button class="btn btn-secondary btn-sm" onclick="exportData('students')">Download Roster</button>
+              </div>
+              <div class="card" style="padding: 1.25rem; border: 1px solid #e5e4de; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💳</div>
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: #111827;">Revenue Report</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Verified payment transactions and collections</p>
+                <button class="btn btn-secondary btn-sm" onclick="exportData('payments')">Download Ledger</button>
+              </div>
+              <div class="card" style="padding: 1.25rem; border: 1px solid #e5e4de; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚌</div>
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: #111827;">Bus Fleet Status</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Seating occupancy and route utilization</p>
+                <button class="btn btn-secondary btn-sm" onclick="exportData('buses')">Download Fleet Data</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 17: ADMIN PROFILE -->
+        <section class="dashboard-view" id="view-profile">
+          <div class="card" style="padding: 2rem; max-width: 680px;">
+            <div style="display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem;">
+              <div style="width: 4.5rem; height: 4.5rem; border-radius: 50%; background: #ccfbf1; display: flex; align-items: center; justify-content: center; font-size: 2.25rem;">
+                👨‍💼
+              </div>
+              <div>
+                <h2 style="font-size: 1.45rem; font-weight: 800; color: #111827;">Dr. Ramesh Sharma</h2>
+                <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">Director of Transport &amp; Logistics</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Admin ID: USR-ADMIN-01 • System Superuser</div>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label class="form-label">Email Address</label>
+                <input type="text" class="form-control" value="admin@college.edu" readonly />
+              </div>
+              <div>
+                <label class="form-label">Contact Phone</label>
+                <input type="text" class="form-control" value="+91 98450 11223" readonly />
+              </div>
+              <div>
+                <label class="form-label">Database Connection</label>
+                <input type="text" class="form-control" value="MySQL 8.0 (college_transportation)" readonly />
+              </div>
+              <div>
+                <label class="form-label">Role Authorization</label>
+                <input type="text" class="form-control" value="Administrator" readonly />
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Reusable Admin Modal -->
+  <div class="modal-overlay" id="adminGenericModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title" id="adminModalTitle">Manage Item</div>
+        <button class="modal-close" onclick="closeAdminModal()">✕</button>
+      </div>
+      <div class="modal-body" id="adminModalBody">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Receipt Printable Modal -->
+  <div class="modal-overlay" id="receiptPrintModal">
+    <div class="modal-container" style="max-width: 680px; padding: 2rem;">
+      <div class="modal-header" style="border: none; padding-bottom: 0;">
+        <div></div>
+        <button class="modal-close" onclick="document.getElementById('receiptPrintModal').classList.remove('active')">✕</button>
+      </div>
+      <div id="receiptModalPrintArea">
+        <!-- Rendered via JS -->
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid #e5e4de; padding-top: 1rem;">
+        <button class="btn btn-secondary" onclick="document.getElementById('receiptPrintModal').classList.remove('active')">Close</button>
+        <button class="btn btn-secondary" onclick="downloadCurrentReceipt()">📥 Download Receipt</button>
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Print Official Receipt</button>
+      </div>
+    </div>
+  <!-- Fee Status Breakdown Modal -->
+  <div class="modal-overlay" id="feeStatusDetailModal">
+    <div class="modal-container" style="max-width: 640px; padding: 2rem;">
+      <div class="modal-header">
+        <div class="modal-title" id="feeStatusDetailTitle">Student Fee &amp; Payment Breakdown</div>
+        <button class="modal-close" onclick="document.getElementById('feeStatusDetailModal').classList.remove('active')">✕</button>
+      </div>
+      <div class="modal-body" id="feeStatusDetailBody">
+        <!-- Rendered via JS -->
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid #e5e4de; padding-top: 1rem;">
+        <button class="btn btn-secondary" onclick="document.getElementById('feeStatusDetailModal').classList.remove('active')">Close</button>
+        <button class="btn btn-primary" id="btnPayFromStatusDetail">💳 Process Payment For This Student</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

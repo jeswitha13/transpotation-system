@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Console - College Transportation Management System</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body style="background: var(--bg-body);">
+
+  <!-- Driver Header -->
+  <header class="top-header" style="background: #0b132b; color: #ffffff; border-bottom: 1px solid #1c2541;">
+    <div style="display: flex; align-items: center; gap: 0.85rem;">
+      <div class="logo-badge" style="background: var(--primary); width: 2.4rem; height: 2.4rem; font-size: 1.2rem;">🚌
+      </div>
+      <div>
+        <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">Driver In-Bus Console</div>
+        <div style="font-size: 0.75rem; color: var(--sky-400);" id="driverNameDisplay">Driver On Duty</div>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <a href="/" target="_blank" class="btn btn-secondary btn-sm"
+        style="background: #1c2541; color: #ffffff !important; border-color: #334155;">Home</a>
+      <button class="btn btn-danger btn-sm" onclick="Auth.logout()">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- Main Driver Interface Container -->
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <div id="driverMainConsole">
+      <div class="text-center" style="padding: 3rem;">
+        <span class="spinner" style="width: 2.5rem; height: 2.5rem;"></span>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/driver.js"></script>
+</body>
+
+</html>

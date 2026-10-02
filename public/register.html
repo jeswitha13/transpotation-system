@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration - College Transportation Management System</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <!-- Left Side: Branding & Policy -->
+    <div class="auth-side-brand">
+      <div class="brand-pattern"></div>
+      <div class="brand-glow"></div>
+
+      <div class="brand-logo-area">
+        <a href="/" style="display: flex; align-items: center; gap: 0.75rem; color: #ffffff;">
+          <div class="logo-badge" style="background: var(--primary);">🚌</div>
+          <span>College Transportation</span>
+        </a>
+      </div>
+
+      <div class="brand-content">
+        <h1 class="brand-hero-title">
+          Apply for College <br>
+          <span>Bus Commute.</span>
+        </h1>
+        <p class="brand-hero-desc">
+          Enroll in college daily transportation service. Select your nearest neighborhood pickup stop, calculate annual fees automatically, and receive your digital transit pass.
+        </p>
+
+        <ul class="brand-perks">
+          <li class="brand-perk-item">
+            <span class="perk-check">✓</span>
+            <span>Guaranteed reserved seat on modern college fleet</span>
+          </li>
+          <li class="brand-perk-item">
+            <span class="perk-check">✓</span>
+            <span>Automated SMS and dashboard morning delay alerts</span>
+          </li>
+          <li class="brand-perk-item">
+            <span class="perk-check">✓</span>
+            <span>Direct contact access with assigned bus driver</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="brand-footer-note">
+        Transportation Helpdesk: +91 98450 11223 • transport@college.edu
+      </div>
+    </div>
+
+    <!-- Right Side: Stepped Registration Form -->
+    <div class="auth-side-form">
+      <div class="auth-card" style="max-width: 580px;">
+        <div class="auth-header">
+          <h2 class="auth-title" id="regMainTitle">Commuter Registration</h2>
+          <p class="auth-subtitle" id="regMainSubtitle">Select your role to register in the College Transportation System</p>
+        </div>
+
+        <!-- Role Tabs: Student / Driver -->
+        <div class="role-tabs" style="margin-bottom: 1.5rem;">
+          <div class="role-tab active" id="regTabStudent" onclick="switchRegRole('student')">Student Registration</div>
+          <div class="role-tab" id="regTabDriver" onclick="switchRegRole('driver')">Driver Registration</div>
+        </div>
+
+        <!-- 1. Student Registration Form -->
+        <form id="registerForm">
+          <!-- Step 1: Student Information -->
+          <div class="reg-section-title">
+            <span>👤 1. Student Academic Details</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="regName">Full Name *</label>
+              <input type="text" class="form-control" id="regName" placeholder="e.g. Aditi Sharma" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="regRollNo">Student ID / Roll Number *</label>
+              <input type="text" class="form-control" id="regRollNo" placeholder="23CS1090" required style="text-transform: uppercase;" />
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group">
+              <label class="form-label" for="regBranch">Branch / Department</label>
+              <select class="form-control form-select" id="regBranch">
+                <option value="Computer Science & Engineering">Computer Science &amp; Engg</option>
+                <option value="Electronics & Communication">Electronics &amp; Comm</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Electrical & Electronics">Electrical &amp; Electronics</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Management Studies">Management Studies (MBA)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="regYear">Academic Year</label>
+              <select class="form-control form-select" id="regYear">
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="regSemester">Semester *</label>
+              <select class="form-control form-select" id="regSemester" required>
+                <option value="1">Sem 1</option>
+                <option value="2">Sem 2</option>
+                <option value="3">Sem 3</option>
+                <option value="4">Sem 4</option>
+                <option value="5">Sem 5</option>
+                <option value="6">Sem 6</option>
+                <option value="7">Sem 7</option>
+                <option value="8">Sem 8</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="regEmail">Email Address *</label>
+              <input type="email" class="form-control" id="regEmail" placeholder="aditi@college.edu" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="regPhone">Mobile Phone *</label>
+              <input type="tel" class="form-control" id="regPhone" placeholder="+91 98765 43210" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regAddress">Home Residential Address</label>
+            <input type="text" class="form-control" id="regAddress" placeholder="Flat No, Street, Town/Village" />
+          </div>
+
+          <!-- Step 2: Account Login Credentials -->
+          <div class="reg-section-title">
+            <span>🔒 2. Account Credentials</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regUsername">Preferred Username</label>
+            <input type="text" class="form-control" id="regUsername" placeholder="e.g. aditi.sharma" />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="regPassword">Account Password *</label>
+              <div class="input-with-icon password-field-wrapper">
+                <input type="password" class="form-control" id="regPassword" placeholder="Minimum 6 characters" required />
+                <button type="button" class="password-toggle-btn" data-target="regPassword">👁️</button>
+              </div>
+              <div class="strength-bar-container">
+                <div class="strength-bar" id="passwordStrengthBar"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regConfirmPassword">Confirm Password *</label>
+              <div class="input-with-icon password-field-wrapper">
+                <input type="password" class="form-control" id="regConfirmPassword" placeholder="Re-type password" required />
+                <button type="button" class="password-toggle-btn" data-target="regConfirmPassword">👁️</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Transportation Selection & Live Fee Preview -->
+          <div class="reg-section-title">
+            <span>📍 3. Transportation &amp; Pickup Stop</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regPickup">Select Your Daily Pickup Stop *</label>
+            <select class="form-control form-select" id="regPickup" required>
+              <option value="">Loading locations...</option>
+            </select>
+            <div class="form-hint">Route and assigned bus will be linked automatically based on your pickup location.</div>
+          </div>
+
+          <!-- Dynamic Fee Preview Box -->
+          <div class="fee-preview-card" id="feePreviewCard">
+            <div>
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700;">Calculated Transportation Fee</div>
+              <div class="fee-preview-amount" id="feePreviewAmount">₹14,000/year</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);" id="feePreviewZone">Zone 1 • Distance: 15 km</div>
+            </div>
+            <div>
+              <span class="badge badge-success">Fee Calculated ✓</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 2rem;">
+            Complete Student Registration →
+          </button>
+        </form>
+
+        <!-- 2. Driver Registration Form -->
+        <form id="driverRegisterForm" style="display: none;">
+          <div class="reg-section-title">
+            <span>🚎 Driver Profile &amp; ID Details</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="drvRegName">Driver Full Name *</label>
+            <input type="text" class="form-control" id="drvRegName" placeholder="e.g. Ramesh Kumar" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="drvRegId">Unique Driver ID *</label>
+              <input type="text" class="form-control" id="drvRegId" placeholder="DRV101" required style="text-transform: uppercase;" />
+              <div class="form-hint">Unique Driver ID for system authentication</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="drvRegPhone">Phone Number</label>
+              <input type="tel" class="form-control" id="drvRegPhone" placeholder="+91 98450 12345" />
+            </div>
+          </div>
+
+          <div class="reg-section-title">
+            <span>🔒 Driver Security Password</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="drvRegPassword">Account Password *</label>
+              <div class="input-with-icon password-field-wrapper">
+                <input type="password" class="form-control" id="drvRegPassword" placeholder="Minimum 6 characters" required />
+                <button type="button" class="password-toggle-btn" data-target="drvRegPassword">👁️</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="drvRegConfirmPassword">Confirm Password *</label>
+              <div class="input-with-icon password-field-wrapper">
+                <input type="password" class="form-control" id="drvRegConfirmPassword" placeholder="Re-type password" required />
+                <button type="button" class="password-toggle-btn" data-target="drvRegConfirmPassword">👁️</button>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 2rem;">
+            Complete Driver Registration →
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 1.75rem; font-size: 0.9rem; color: var(--text-secondary);">
+          Already registered? <br>
+          <a href="/login.html" style="font-weight: 700; color: var(--primary);">Sign in to your Transportation Portal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal - College Transportation Management System</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/landing.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Student Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-badge" style="width: 2.2rem; height: 2.2rem; font-size: 1.1rem; background: var(--primary);">🚌</div>
+        <div>
+          <div class="sidebar-brand-title">Transport OS</div>
+          <div class="sidebar-brand-sub">Student Portal</div>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-container">
+        <div class="sidebar-group-title">My Transit</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a class="sidebar-link active" data-view="overview">
+              <span class="sidebar-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="tracking">
+              <span class="sidebar-icon">📍</span>
+              <span>Live Bus Tracking</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="bus-pass">
+              <span class="sidebar-icon">🎫</span>
+              <span>My Bus Pass</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="profile">
+              <span class="sidebar-icon">👤</span>
+              <span>My Profile</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-group-title">Payments &amp; Receipts</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="pay-fee">
+              <span class="sidebar-icon">💳</span>
+              <span>Pay Transport Fee</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="receipts">
+              <span class="sidebar-icon">📄</span>
+              <span>My Receipts</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-group-title">Support &amp; Requests</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="cancel">
+              <span class="sidebar-icon">⚠️</span>
+              <span>Cancel Commute</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="notifications">
+              <span class="sidebar-icon">🔔</span>
+              <span>Notifications</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" data-view="support">
+              <span class="sidebar-icon">🎧</span>
+              <span>Help &amp; Support</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="/" target="_blank">
+              <span class="sidebar-icon">🌐</span>
+              <span>Home Page</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" onclick="Auth.logout()">
+              <span class="sidebar-icon">🚪</span>
+              <span>Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Student Mini Profile in Footer -->
+      <div class="sidebar-footer">
+        <div class="user-mini-avatar" style="border-color: var(--sky-400);">👨‍🎓</div>
+        <div class="user-mini-info">
+          <div class="user-mini-name student-profile-name">Student User</div>
+          <div class="user-mini-role student-profile-roll">23CS1048</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle Navigation">☰</button>
+          <div class="breadcrumb-trail">
+            <span>Student</span>
+            <span>/</span>
+            <span class="breadcrumb-current" id="breadcrumbCurrent">Overview</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="btn btn-primary btn-sm" onclick="document.querySelector('[data-view=tracking]').click()">
+            📍 Track My Bus
+          </button>
+          <button class="notification-bell-btn" onclick="document.querySelector('[data-view=notifications]').click()" aria-label="Notifications">
+            🔔
+          </button>
+          <a href="/login.html" class="btn btn-secondary btn-sm" onclick="Auth.logout()">Logout</a>
+        </div>
+      </header>
+
+      <!-- Main Body -->
+      <main class="page-content-area">
+
+        <!-- VIEW 1: STUDENT OVERVIEW -->
+        <section class="dashboard-view active" id="view-overview">
+          <div class="welcome-banner" style="background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);">
+            <div>
+              <h1 class="welcome-title">Welcome back, <span class="student-profile-name">Student</span> 👋</h1>
+              <p class="welcome-sub">Your college daily commute dashboard and digital transit pass center.</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button class="btn btn-primary btn-sm" onclick="document.querySelector('[data-view=bus-pass]').click()">
+                🎫 Apply for Bus Pass
+              </button>
+              <button class="btn btn-secondary btn-sm" style="color: #ffffff !important; background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3);" onclick="document.querySelector('[data-view=bus-pass]').click()">
+                View Bus Pass
+              </button>
+            </div>
+          </div>
+
+          <!-- Transportation Status Cards -->
+          <div class="metrics-grid-8" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #dbeafe; color: var(--primary);">🚌</div>
+                <span class="badge" id="overviewPassBadge">Active</span>
+              </div>
+              <div class="metric-val" id="overviewStatus">Active</div>
+              <div class="metric-label">Transportation Status</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #e0f2fe; color: var(--accent);">📍</div>
+                <span class="metric-trend trend-up">Pickup</span>
+              </div>
+              <div class="metric-val" style="font-size: 1.15rem;" id="overviewLocation">--</div>
+              <div class="metric-label">Designated Stop</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #f1f5f9; color: var(--navy-900);">🗺️</div>
+                <span class="metric-trend trend-up">Corridor</span>
+              </div>
+              <div class="metric-val" style="font-size: 1.15rem;" id="overviewRoute">--</div>
+              <div class="metric-label">Assigned Route</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <div class="metric-icon-box" style="background: #ecfdf5; color: var(--success);">🚍</div>
+                <span class="metric-trend trend-up">Vehicle</span>
+              </div>
+              <div class="metric-val" id="overviewBus">--</div>
+              <div class="metric-label">Assigned Fleet Bus</div>
+            </div>
+          </div>
+
+          <!-- Secondary Details Row -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+            <div class="card" style="padding: 1.75rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--navy-900); margin-bottom: 1.25rem;">
+                Assigned Driver Information
+              </h3>
+              <div style="display: flex; align-items: center; gap: 1rem; background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md);">
+                <div style="width: 3.5rem; height: 3.5rem; border-radius: 50%; background: var(--primary-100); display: flex; align-items: center; justify-content: center; font-size: 1.75rem;">
+                  👮‍♂️
+                </div>
+                <div>
+                  <div style="font-size: 1.15rem; font-weight: 800; color: var(--navy-900);" id="overviewDriver">Suresh Kumar</div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Fleet Driver • On Duty</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 1.75rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--navy-900);">Annual Fee Status</h3>
+                <span class="badge badge-success" id="overviewFeeBadge">Paid</span>
+              </div>
+              <div style="background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 1.6rem; font-weight: 800; color: var(--navy-900);" id="overviewFee">₹14,000</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Status: <strong id="overviewPaymentStatus">Paid</strong></div>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="document.querySelector('[data-view=pay-fee]').click()">
+                  View Fee Details →
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: LIVE BUS TRACKING -->
+        <section class="dashboard-view" id="view-tracking">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <div>
+              <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--navy-900);">Live Bus Telemetry &amp; Route Map</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Real-time tracking of your assigned college bus</p>
+            </div>
+          </div>
+
+          <!-- Hidden telemetry helper tags for JS -->
+          <span id="trkBusNo" style="display: none;">Bus 01</span>
+          <span id="trkDriver" style="display: none;">Suresh Kumar</span>
+          <span id="trkRoute" style="display: none;">Route 01</span>
+          <span id="trkStatus" style="display: none;">In Transit</span>
+          <span id="trkNextStop" style="display: none;">Nehru Circle</span>
+          <span id="trkSpeed" style="display: none;">42 km/h</span>
+          <span id="trkEta" style="display: none;">18 mins</span>
+          <span id="trkUpdated" style="display: none;">Now</span>
+
+          <div id="studentTrackingMapContainer">
+            <!-- Rendered by loadStudentTrackingView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 3: DIGITAL BUS PASS -->
+        <section class="dashboard-view" id="view-bus-pass">
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--navy-900);">Official College Bus Pass</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Present this digital or printed pass upon boarding your bus</p>
+          </div>
+
+          <div id="studentBusPassContainer">
+            <!-- Injected via loadBusPassView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 4: MY PROFILE -->
+        <section class="dashboard-view" id="view-profile">
+          <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--navy-900);">Student Profile</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Personal and college commute registration information</p>
+          </div>
+
+          <div id="studentProfileDetails" style="max-width: 720px;">
+            <!-- Injected via loadStudentProfileView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 5: PAY FEE -->
+        <section class="dashboard-view" id="view-pay-fee">
+          <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--navy-900);">Fee Calculator &amp; Payment</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Location-based fee computation and payment portal</p>
+          </div>
+
+          <div id="feePaymentContainer">
+            <!-- Injected via loadFeePaymentView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 6: MY RECEIPTS -->
+        <section class="dashboard-view" id="view-receipts">
+          <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--navy-900);">Transportation Fee Receipts</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Official digital verification receipts with print formatting</p>
+          </div>
+
+          <div id="studentReceiptsContainer">
+            <!-- Injected via loadReceiptsView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 7: CANCEL TRANSPORTATION -->
+        <section class="dashboard-view" id="view-cancel">
+          <div id="studentCancellationContainer">
+            <!-- Injected via loadCancellationView() -->
+          </div>
+        </section>
+
+        <!-- VIEW 8: NOTIFICATIONS -->
+        <section class="dashboard-view" id="view-notifications">
+          <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--navy-900);">Transit Notification Center</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Important alerts regarding delays, payments, and schedules</p>
+          </div>
+
+          <div id="studentNotificationsContainer" style="max-width: 680px;">
+            <!-- Injected via loadStudentNotifications() -->
+          </div>
+        </section>
+
+        <!-- VIEW 9: HELP & SUPPORT -->
+        <section class="dashboard-view" id="view-support">
+          <div style="margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--navy-900);">Help &amp; Support</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">College transportation desk and emergency helpline information</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 900px;">
+            <div class="card" style="padding: 1.75rem; border-top: 4px solid var(--primary);">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">👨‍💼</div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--navy-900);">Admin Contact</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Transportation Logistics &amp; Fee Desk</p>
+              <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-md); font-size: 0.9rem;">
+                <div><strong>Incharge:</strong> Dr. Ramesh Sharma</div>
+                <div style="margin-top: 0.35rem;"><strong>Phone:</strong> <a href="tel:+919845011223" style="color: var(--primary); font-weight: 700;">+91 98450 11223</a></div>
+                <div style="margin-top: 0.35rem;"><strong>Email:</strong> <a href="mailto:transport@college.edu" style="color: var(--primary);">transport@college.edu</a></div>
+                <div style="margin-top: 0.35rem;"><strong>Hours:</strong> Mon - Sat (8:00 AM - 5:30 PM)</div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 1.75rem; border-top: 4px solid var(--danger);">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚨</div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--navy-900);">Emergency Contact</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">24/7 Campus Transit Emergency Hotline</p>
+              <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-md); font-size: 0.9rem;">
+                <div><strong>Campus Security:</strong> <a href="tel:112" style="color: var(--danger); font-weight: 800;">112 / 100</a></div>
+                <div style="margin-top: 0.35rem;"><strong>Fleet Control Room:</strong> <a href="tel:+919845099999" style="color: var(--danger); font-weight: 700;">+91 98450 99999</a></div>
+                <div style="margin-top: 0.35rem;"><strong>Medical Emergency:</strong> <a href="tel:108" style="color: var(--danger); font-weight: 700;">108 (Ambulance)</a></div>
+                <div style="margin-top: 0.35rem;"><strong>Campus Health Center:</strong> Ext. 404 / 405</div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 1.75rem; border-top: 4px solid var(--accent);">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">ℹ️</div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--navy-900);">Support Information</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Commuter Assistance &amp; Lost &amp; Found</p>
+              <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-md); font-size: 0.9rem;">
+                <div><strong>Office:</strong> Student Transit Center, Ground Floor, Admin Block</div>
+                <div style="margin-top: 0.35rem;"><strong>Pass Helpdesk:</strong> passes@college.edu</div>
+                <div style="margin-top: 0.35rem;"><strong>Lost &amp; Found:</strong> Report immediately via driver or desk</div>
+                <div style="margin-top: 0.35rem;"><strong>Bus Pass Replacement:</strong> Duplicate pass issued within 24h</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Reusable Student Modal -->
+  <div class="modal-overlay" id="studentGenericModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title" id="studentModalTitle">Modal Title</div>
+        <button class="modal-close" onclick="closeStudentModal()">✕</button>
+      </div>
+      <div class="modal-body" id="studentModalBody">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/student.js"></script>
+</body>
+</html>
